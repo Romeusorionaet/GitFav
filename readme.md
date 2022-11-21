@@ -4,6 +4,8 @@
 
 > Com esse projeto voçe pode favoritar qualquer pessoa do github, pesquisando seu nome irá aparecer na lista abaixo podendo entrar no seu perfil no github e poder se conectar.
 
+[😊⭐⭐Clique aqui para acessar⭐⭐😊](https://romeusorionaet.github.io/GitFav/)
+
 # Tecnologias utilizadas
 - HTML
 - CSS
