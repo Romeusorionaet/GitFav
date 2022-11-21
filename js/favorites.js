@@ -16,9 +16,7 @@ export class Favorites {
 
     async add(username) {
         try {
-
             const userExists = this.entries.find(entry => entry.login.toLowerCase() === username.toLowerCase())
-
             if(userExists){
                 throw new Error('Usuário já cadastrado.')
             }
@@ -42,8 +40,8 @@ export class Favorites {
         .filter(entry => entry.login !== user.login)
         this.entries = filteredEntries
         this.update()
+        this.save()
     }
-
 }
 
 export class FavoritesView extends Favorites {
@@ -63,10 +61,12 @@ export class FavoritesView extends Favorites {
     }
 
     update() {
+        let userCounter = 0
         this.removeAllTr()
         this.entries.forEach(user => {
             const row = this.createRow()
-
+           
+            userCounter++
             row.querySelector('.user img').src = `https://github.com/${user.login}.png`
             row.querySelector('.user img').alt = `Imagem de ${user.name}`
             row.querySelector('.user a').href = `https://github.com/${user.login}`
@@ -79,18 +79,29 @@ export class FavoritesView extends Favorites {
                 const isOk = confirm('Tem certeza que deseja deletar essa linha?')
                 if(isOk){
                     this.delete(user)
+                    userCounter--
                 }
             }
-
+           
             this.tbody.append(row)
+
+            const camp = document.querySelector('.Camp')
+            if(userCounter > 0){
+                camp.classList.add('hide')
+            }else{
+                camp.classList.remove('hide')
+            }
+            
         })
     }
-
+    
     removeAllTr() {
         this.tbody.querySelectorAll('tr').forEach((tr) => {tr.remove()})
     }
 
+
     createRow() {
+        
         const tr = document.createElement('tr')
         tr.innerHTML = `
         <td class="user">
@@ -106,6 +117,7 @@ export class FavoritesView extends Favorites {
                 <button class="remove">Remove</button>
         </td>
         `
+       
         return tr
     }
 }
