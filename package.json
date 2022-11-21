@@ -1,0 +1,23 @@
+{
+  "name": "gitfav",
+  "version": "1.0.0",
+  "description": "![preview](./img/preview.png)",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Romeusorionaet/GitFav.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Romeusorionaet/GitFav/issues"
+  },
+  "homepage": "https://github.com/Romeusorionaet/GitFav#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
